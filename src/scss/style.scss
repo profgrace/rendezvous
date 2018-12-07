@@ -1,0 +1,51 @@
+* {
+  font-family: "Raleway", sans-serif !important;
+}
+.splash {
+  height: 100%;
+}
+a {
+  display: block;
+  font-size: 16px;
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+}
+.bg {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 0;
+  .lay {
+    background-color: black;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+  img {
+    left: -525px;
+    max-height: 100%;
+    opacity: 0.5;
+    position: relative;
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.21);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+.logo {
+  max-width: 220px;
+  position: relative;
+}
+.submit-btn {
+  font-size: 18px;
+  font-weight: 600;
+  height: 50px;
+  text-transform: none;
+  width: 250px;
+}
