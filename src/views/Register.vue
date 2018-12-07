@@ -22,13 +22,18 @@
             label="Password"
             placeholder="Something simple you'll remember"
             v-model="password"
-            v-on:keyup.enter="login"
+            v-on:keyup.enter="register"
           ></v-text-field>
-          <v-btn round color="secondary" class="black--text submit-btn" @click="login">Login</v-btn>
+          <v-btn
+            round
+            color="secondary"
+            class="black--text submit-btn"
+            @click="register"
+          >Get Started</v-btn>
         </v-form>
-        <router-link to="/register" class="white--text login-here">
-          Your first time?
-          <u>Get Started here</u>
+        <router-link to="/login" class="white--text login-here">
+          Not your first time?
+          <u>Login here</u>
         </router-link>
         <span class="or">or</span>
         <router-link to="/" class="white--text">Want to Use Facebook Instead?</router-link>
@@ -54,15 +59,14 @@ export default {
     };
   },
   methods: {
-    login() {
+    register() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           // eslint-disable-next-line
           user => {
-            // console.log(user);
-            this.$router.replace("home");
+            this.$router.replace("login");
           },
           function(err) {
             alert(`Oops! ${err.message}`);

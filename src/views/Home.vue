@@ -1,13 +1,22 @@
 <template>
-  <HelloWorld />
+  <v-container grid-list-xs>
+    <Bg/>
+    <ToolBar/>
+    <BottomNav/>
+  </v-container>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld";
+import Bg from "../components/Bg";
+import ToolBar from "../components/ToolBar";
+import BottomNav from "../components/BottomNav";
 
 export default {
+  name: "home",
   components: {
-    HelloWorld
+    Bg,
+    ToolBar,
+    BottomNav
   }
 };
 </script>

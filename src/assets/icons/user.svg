@@ -1,0 +1,18 @@
+<svg id="iconfinder_user_female4_172624" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.18 31.18">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-1" cx="14.966" cy="14.966" r="14.966" transform="translate(0.624 0.624)"/>
+  <rect id="Rectangle_16" data-name="Rectangle 16" class="cls-2" width="31.18" height="31.18"/>
+  <path id="Path_22" data-name="Path 22" class="cls-1" d="M21.912,24.824c-.016-.179-.028-.466-.037-.765,2.71-.277,4.61-.927,4.61-1.684-.007,0-.007-.031-.007-.044-2.025-1.825,1.756-14.8-5.284-14.533a3.581,3.581,0,0,0-2.326-.707c-9.535.721-5.319,12.971-7.492,15.283h0s0,0,0,0h0c.009.741,1.845,1.379,4.476,1.664-.007.181-.023.4-.057.779-.8,2.15-4.86,2.05-7.168,4.189,1.262,1.1,5.555,4.292,10.271,4.292s8.632-2.238,10.193-4.121C26.775,27.107,22.7,26.953,21.912,24.824Z" transform="translate(-3.246 -2.669)"/>
+</svg>

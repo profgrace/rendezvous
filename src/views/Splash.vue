@@ -5,7 +5,7 @@
       <Logo/>
       <v-flex xs12>
         <v-btn color="blue" dark class="fb-btn submit-btn">Log in with Facebook</v-btn>
-        <router-link to="/login" class="white--text">No Facebook Account?</router-link>
+        <router-link to="/register" class="white--text">No Facebook Account?</router-link>
       </v-flex>
     </v-layout>
   </v-container>
