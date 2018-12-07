@@ -46,6 +46,18 @@ a {
   font-size: 18px;
   font-weight: 600;
   height: 50px;
+  margin: 0 !important;
   text-transform: none;
   width: 250px;
+}
+form {
+  margin: 0 auto;
+  width: 270px;
+  button {
+    width: 100% !important;
+  }
+  label {
+    color: black;
+    font-weight: 600;
+  }
 }

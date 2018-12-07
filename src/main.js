@@ -10,7 +10,8 @@ Vue.config.productionTip = false;
 
 Vue.use(Vuetify, {
   theme: {
-    primary: "#FFD700",
+    primary: "#000000",
+    secondary: "#FFD700",
     blue: "#425BC3"
   }
 });
