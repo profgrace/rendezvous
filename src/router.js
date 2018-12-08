@@ -9,6 +9,8 @@ import Profile from "./views/Profile.vue";
 import Feed from "./views/Feed.vue";
 import Notifications from "./views/Notifications.vue";
 
+// import BottomNav from "./components/BottomNav.vue";
+
 Vue.use(Router);
 
 const router = new Router({
@@ -37,6 +39,11 @@ const router = new Router({
       name: "home",
       component: Home,
       children: [
+        // {
+        //   path: "/home",
+        //   name: "BottomNav",
+        //   component: BottomNav
+        // },
         {
           path: "/home",
           name: "Profile",
