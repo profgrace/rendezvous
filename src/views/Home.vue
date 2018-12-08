@@ -1,9 +1,10 @@
 <template>
   <v-container fill-height fluid grid-list-md>
     <Bg/>
-    <ToolBar/>
-    <router-view></router-view>
-    <BottomNav/>
+    <!-- <p>{{title}}</p> -->
+    <ToolBar :title="title"/>
+    <router-view/>
+    <BottomNav @new-title="changeTitle"/>
   </v-container>
 </template>
 
@@ -18,6 +19,17 @@ export default {
     Bg,
     ToolBar,
     BottomNav
+  },
+  data() {
+    return {
+      title: "Complete your Profile",
+      msg: ""
+    };
+  },
+  methods: {
+    changeTitle(title) {
+      this.title = title;
+    }
   }
 };
 </script>

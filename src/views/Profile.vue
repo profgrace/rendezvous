@@ -58,7 +58,12 @@
       placeholder="Choose up to 5 interests"
       multiple
     ></v-select>
-    <v-btn round color="btnColor" class="black--text submit-btn">Done</v-btn>
+    <v-btn
+      round
+      color="btnColor"
+      class="black--text submit-btn"
+      @click="changeTitle('Profile')"
+    >Done</v-btn>
   </v-form>
 </template>
 <script>
@@ -80,6 +85,11 @@ export default {
       ],
       search: null
     };
+  },
+  methods: {
+    changeTitle(title) {
+      this.$emit("new-title", title);
+    }
   },
   watch: {
     interest(val) {

@@ -1,7 +1,7 @@
 <template>
   <v-toolbar app fixed>
     <v-toolbar-title class="subheading font-weight-medium">
-      <span>Complete your Profile</span>
+      <span>{{title}}</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn flat class="logout" @click="logout">
@@ -13,6 +13,7 @@
 <script>
 import firebase from "firebase";
 export default {
+  props: ["title"],
   methods: {
     logout() {
       firebase
