@@ -1,6 +1,7 @@
 import Vue from "vue";
 import "./plugins/vuetify";
 import Vuetify from "vuetify";
+import VueFire from "vuefire";
 import firebase from "firebase";
 import App from "./App.vue";
 import router from "./router";
@@ -20,6 +21,8 @@ firebase.initializeApp({
   messagingSenderId: "311131937755"
 });
 
+Vue.use(VueFire);
+
 Vue.use(Vuetify, {
   theme: {
     primary: "#000000",
@@ -27,7 +30,8 @@ Vue.use(Vuetify, {
     blue: "#425BC3",
     btnColor: "#FFD700",
     burntYellow: "#847000",
-    burntRed: "#980000"
+    burntRed: "#980000",
+    darkBrown: "#4D4D4D"
   }
 });
 
