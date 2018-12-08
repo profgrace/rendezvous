@@ -5,6 +5,9 @@ import Splash from "./views/Splash.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Home from "./views/Home.vue";
+import Profile from "./views/Profile.vue";
+import Feed from "./views/Feed.vue";
+import Notifications from "./views/Notifications.vue";
 
 Vue.use(Router);
 
@@ -33,6 +36,23 @@ const router = new Router({
       path: "/home",
       name: "home",
       component: Home,
+      children: [
+        {
+          path: "/home",
+          name: "Profile",
+          component: Profile
+        },
+        {
+          path: "/home/feed",
+          name: "Feed",
+          component: Feed
+        },
+        {
+          path: "/home/notifications",
+          name: "Notifications",
+          component: Notifications
+        }
+      ],
       meta: {
         requiresAuth: true
       }

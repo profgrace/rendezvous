@@ -25,6 +25,7 @@ Vue.use(Vuetify, {
     primary: "#000000",
     secondary: "#BEA100",
     blue: "#425BC3",
+    btnColor: "#FFD700",
     burntYellow: "#847000",
     burntRed: "#980000"
   }

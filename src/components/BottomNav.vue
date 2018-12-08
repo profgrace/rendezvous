@@ -21,7 +21,7 @@ export default {
   name: "BottomNav",
   data() {
     return {
-      bottomNav: "feed"
+      bottomNav: "profile"
     };
   }
 };

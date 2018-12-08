@@ -24,7 +24,7 @@
             v-model="password"
             v-on:keyup.enter="login"
           ></v-text-field>
-          <v-btn round color="secondary" class="black--text submit-btn" @click="login">Login</v-btn>
+          <v-btn round color="btnColor" class="black--text submit-btn" @click="login">Login</v-btn>
         </v-form>
         <router-link to="/register" class="white--text login-here">
           Your first time?

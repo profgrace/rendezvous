@@ -1,4 +1,5 @@
-* {
+body,
+.application {
   font-family: "Raleway", sans-serif !important;
 }
 button {
@@ -103,4 +104,20 @@ a.login-here {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.36) !important;
   }
 }
-// }
+
+// Profile Pic
+.profile-pic {
+  position: relative;
+  .upload-img {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    img {
+      border-radius: unset;
+      width: 25px;
+    }
+  }
+}

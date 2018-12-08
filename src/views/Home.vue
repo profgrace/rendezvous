@@ -1,7 +1,8 @@
 <template>
-  <v-container grid-list-xs>
+  <v-container fill-height fluid grid-list-md>
     <Bg/>
     <ToolBar/>
+    <router-view></router-view>
     <BottomNav/>
   </v-container>
 </template>
