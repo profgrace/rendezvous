@@ -4,28 +4,8 @@
     <v-layout row wrap align-center justify-center text-xs-center>
       <Logo/>
       <v-flex xs12>
-        <v-form>
-          <v-text-field
-            box
-            background-color="white"
-            name="phone"
-            type="text"
-            label="Email Address"
-            placeholder="Your personal email address"
-            v-model="email"
-          ></v-text-field>
-          <v-text-field
-            box
-            background-color="white"
-            name="phone"
-            type="password"
-            label="Password"
-            placeholder="Something simple you'll remember"
-            v-model="password"
-            v-on:keyup.enter="login"
-          ></v-text-field>
-          <v-btn round color="btnColor" class="black--text submit-btn" @click="login">Login</v-btn>
-        </v-form>
+        <Form @email="setEmail" @password="setPassword" />
+        <v-btn round color="btnColor" class="black--text submit-btn" @click="login">Login</v-btn>
         <router-link to="/register" class="white--text login-here">
           Your first time?
           <u>Get Started here</u>
@@ -37,15 +17,17 @@
   </v-container>
 </template>
 <script>
+/* eslint-disable */
 import Bg from "../components/Bg.vue";
 import Logo from "../components/Logo.vue";
+import Form from "../components/Form.vue";
 
-import firebase from "firebase";
 export default {
   name: "login",
   components: {
     Bg,
-    Logo
+    Logo,
+    Form
   },
   data() {
     return {
@@ -54,20 +36,24 @@ export default {
     };
   },
   methods: {
+    setEmail: function (email) {
+      this.email = email
+    },
+    setPassword: function (password) {
+      this.password = password
+    },
     login() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            this.$store.commit("setCurrentUser", user);
-            this.$store.dispatch("fetchUserProfile");
-            this.$router.replace("home");
-          },
-          function(err) {
-            alert(`Oops! ${err.message}`);
-          }
-        );
+      const self = this
+      const user = {
+        email: this.email,
+        password: this.password
+      }
+      this.$store.dispatch("user/login", user)
+      .then(user => {
+        self.$router.replace("home")
+      }).catch(err => {
+        alert(`Oops! ${err.message}`)
+      })
     }
   }
 };

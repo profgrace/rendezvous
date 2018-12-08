@@ -4,28 +4,8 @@
     <v-layout row wrap align-center justify-center text-xs-center>
       <Logo/>
       <v-flex xs12>
-        <v-form>
-          <v-text-field
-            box
-            background-color="white"
-            name="phone"
-            type="text"
-            label="Email Address"
-            placeholder="Your personal email address"
-            v-model="email"
-          ></v-text-field>
-          <v-text-field
-            box
-            background-color="white"
-            name="phone"
-            type="password"
-            label="Password"
-            placeholder="Something simple you'll remember"
-            v-model="password"
-            v-on:keyup.enter="register"
-          ></v-text-field>
-          <v-btn round color="btnColor" class="black--text submit-btn" @click="register">Get Started</v-btn>
-        </v-form>
+        <Form @email="setEmail" @password="setPassword" />
+        <v-btn round color="btnColor" class="black--text submit-btn" @click="register">Get Started</v-btn>
         <router-link to="/login" class="white--text login-here">
           Not your first time?
           <u>Login here</u>
@@ -37,15 +17,18 @@
   </v-container>
 </template>
 <script>
+/* eslint-disable */
 import Bg from "../components/Bg.vue";
 import Logo from "../components/Logo.vue";
+import Form from "../components/Form.vue";
 
 import firebase from "firebase";
 export default {
   name: "login",
   components: {
     Bg,
-    Logo
+    Logo,
+    Form
   },
   data() {
     return {
@@ -54,19 +37,24 @@ export default {
     };
   },
   methods: {
+    setEmail: function (email) {
+      this.email = email
+    },
+    setPassword: function (password) {
+      this.password = password
+    },
     register() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          // eslint-disable-next-line
-          user => {
-            this.$router.replace("login");
-          },
-          function(err) {
-            alert(`Oops! ${err.message}`);
-          }
-        );
+      const self = this
+      const user = {
+        email: this.email,
+        password: this.password
+      }
+      this.$store.dispatch("user/register", user)
+      .then(user => {
+        self.$router.replace("login");
+      }).catch(err => {
+        alert(`Oops! ${err.message}`);
+      });
     }
   }
 };
