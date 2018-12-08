@@ -59,9 +59,9 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
-          // eslint-disable-next-line
           user => {
-            // console.log(user);
+            this.$store.commit("setCurrentUser", user);
+            this.$store.dispatch("fetchUserProfile");
             this.$router.replace("home");
           },
           function(err) {

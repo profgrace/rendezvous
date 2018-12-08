@@ -2,7 +2,9 @@ body,
 .application {
   font-family: "Raleway", sans-serif !important;
 }
-button {
+button,
+a {
+  color: white !important;
   text-transform: unset !important;
   img {
     margin-bottom: 5px;
@@ -119,5 +121,12 @@ a.login-here {
       border-radius: unset;
       width: 25px;
     }
+  }
+}
+
+// Coming Soon
+.coming-soon {
+  span {
+    font-family: "Raleway", sans-serif !important;
   }
 }
