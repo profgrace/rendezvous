@@ -1,36 +1,39 @@
 /* eslint-disable */
-
-import api from "../../api"
+import api from "../../api";
 const state = {
-  user: ""
+  user: {},
 };
 
 const getters = {
-  getLogin(state) {
+  getUser(state) {
     return state.user;
-  }
+  },
 };
 
 const mutations = {
   setCurrentUser(state, user) {
-    state.user = user;
-  }
+    console.log(`User: ${JSON.stringify(user)}`);
+    state.user = {
+      email: user.email,
+    };
+  },
 };
 
 const actions = {
   async login({ commit }, data) {
-    const loginResponse = await api.userLogin(data)
-    console.log("login:\n ", loginResponse)
-    commit("setCurrentUser", loginResponse.user)
+    const loginResponse = await api.userLogin(data);
+    // console.log("login:\n ", loginResponse);
+    commit("setCurrentUser", loginResponse.user);
   },
+  // eslint-disable-next-line
   async fetchUserProfile({ commit }) {
-    return state.user
+    return state.user;
   },
   async register({ commit }, data) {
-    const registrationResponse = await api.userRegister(data)
-    console.log("registration response:\n", registrationResponse)
-    commit("setCurrentUser", registrationResponse.user)
-  }
+    const registrationResponse = await api.userRegister(data);
+    // console.log("registration response:\n", registrationResponse);
+    commit("setCurrentUser", registrationResponse.user);
+  },
 };
 
 export default {
@@ -38,5 +41,5 @@ export default {
   state,
   getters,
   mutations,
-  actions
-}
+  actions,
+};

@@ -1,5 +1,5 @@
 <template>
-  <v-form class="mb-5">
+  <v-form class="my-3">
     <v-layout row wrap>
       <v-flex xs3 class="profile-pic">
         <v-avatar size="60">
@@ -37,7 +37,7 @@
       type="text"
       label="Email Address"
       placeholder="Your email address here. . ."
-      v-model="email"
+      v-model="user.email"
     ></v-text-field>
     <v-text-field
       box
@@ -58,15 +58,11 @@
       placeholder="Choose up to 5 interests"
       multiple
     ></v-select>
-    <v-btn
-      round
-      color="btnColor"
-      class="black--text submit-btn"
-      @click="changeTitle('Profile')"
-    >Done</v-btn>
+    <v-btn round color="btnColor" class="black--text submit-btn" @click="saveProfile">Done</v-btn>
   </v-form>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -86,9 +82,32 @@ export default {
       search: null
     };
   },
+  computed: {
+    ...mapGetters("user", {
+      user: "getUser"
+    })
+  },
   methods: {
-    changeTitle(title) {
-      this.$emit("new-title", title);
+    saveProfile() {
+      const self = this;
+      const person = {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        phone: this.phone,
+        interest: this.interest
+      };
+      this.$store
+        .dispatch("people/addPerson", person)
+        // eslint-disable-next-line
+        .then(user => {
+          // eslint-disable-next-line
+          // console.log(`User Info: ${user}`);
+          self.$router.push("/home/feed");
+        })
+        .catch(err => {
+          alert(`Oops! ${err.message}`);
+        });
     }
   },
   watch: {

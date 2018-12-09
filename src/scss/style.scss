@@ -4,7 +4,7 @@ body,
 }
 button,
 a {
-  color: white !important;
+  // color: white !important;
   text-transform: unset !important;
   img {
     margin-bottom: 5px;
@@ -53,19 +53,15 @@ a {
   position: relative;
 }
 .submit-btn {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   height: 50px;
-  margin: 0 !important;
+  margin: 0;
   text-transform: none;
-  width: 250px;
+  width: 100%;
 }
 form {
-  margin: 0 auto;
-  width: 270px;
-  button {
-    width: 100% !important;
-  }
+  width: 100%;
   label {
     color: black;
     font-weight: 600;
@@ -83,13 +79,21 @@ form {
 }
 
 a.login-here {
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: unset;
 }
 .or {
   color: white;
-  font-style: italic;
+  font-size: 16px;
   font-weight: 500;
   position: relative;
+  span {
+    border-top: 1px solid #aaaaaa;
+    display: inline-block;
+    height: 5px;
+    width: 40%;
+  }
 }
 
 // Bottom Nav

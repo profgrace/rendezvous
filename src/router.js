@@ -39,24 +39,19 @@ const router = new Router({
       name: "home",
       component: Home,
       children: [
-        // {
-        //   path: "/home",
-        //   name: "BottomNav",
-        //   component: BottomNav
-        // },
         {
           path: "/home",
-          name: "Profile",
+          name: "profile",
           component: Profile
         },
         {
           path: "/home/feed",
-          name: "Feed",
+          name: "feed",
           component: Feed
         },
         {
           path: "/home/notifications",
-          name: "Notifications",
+          name: "notifications",
           component: Notifications
         }
       ],

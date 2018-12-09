@@ -4,8 +4,14 @@
     <v-layout row wrap align-center justify-center text-xs-center>
       <Logo/>
       <v-flex xs12>
-        <v-btn color="blue" dark class="fb-btn submit-btn">Log in with Facebook</v-btn>
-        <router-link to="/register" class="white--text">No Facebook Account?</router-link>
+        <v-btn
+          color="btnColor"
+          round
+          light
+          class="fb-btn submit-btn mb-3"
+          to="/register"
+        >Get Started</v-btn>
+        <v-btn color="btnColor" round outline class="fb-btn submit-btn" to="/login">Log in</v-btn>
       </v-flex>
     </v-layout>
   </v-container>

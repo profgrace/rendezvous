@@ -4,14 +4,25 @@
     <v-layout row wrap align-center justify-center text-xs-center>
       <Logo/>
       <v-flex xs12>
-        <Form @email="setEmail" @password="setPassword" />
-        <v-btn round color="btnColor" class="black--text submit-btn" @click="register">Get Started</v-btn>
-        <router-link to="/login" class="white--text login-here">
-          Not your first time?
-          <u>Login here</u>
+        <Form @email="setEmail" @password="setPassword"/>
+        <v-btn
+          round
+          color="btnColor"
+          class="black--text submit-btn mb-3"
+          @click="register"
+        >Get Started</v-btn>
+        <div class="or mb-3">
+          <span></span> or
+          <span></span>
+        </div>
+        <v-btn round color="red" dark class="submit-btn">
+          <img src="../assets/icons/google.svg" alt="Google's Icon" class="mr-2">
+          Get Started with Google
+        </v-btn>
+        <router-link to="/login" class="white--text login-here mt-3">
+          Already have an account?
+          <span class="btnColor--text">Log in</span>
         </router-link>
-        <span class="or">or</span>
-        <router-link to="/" class="white--text">Want to Use Facebook Instead?</router-link>
       </v-flex>
     </v-layout>
   </v-container>
@@ -37,24 +48,26 @@ export default {
     };
   },
   methods: {
-    setEmail: function (email) {
-      this.email = email
+    setEmail: function(email) {
+      this.email = email;
     },
-    setPassword: function (password) {
-      this.password = password
+    setPassword: function(password) {
+      this.password = password;
     },
     register() {
-      const self = this
+      const self = this;
       const user = {
         email: this.email,
         password: this.password
-      }
-      this.$store.dispatch("user/register", user)
-      .then(user => {
-        self.$router.replace("login");
-      }).catch(err => {
-        alert(`Oops! ${err.message}`);
-      });
+      };
+      this.$store
+        .dispatch("user/register", user)
+        .then(user => {
+          self.$router.replace("login");
+        })
+        .catch(err => {
+          alert(`Oops! ${err.message}`);
+        });
     }
   }
 };
