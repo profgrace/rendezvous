@@ -63,7 +63,9 @@ export default {
       this.$store
         .dispatch("user/register", user)
         .then(user => {
-          self.$router.replace("login");
+          // self.$router.replace("login");
+          this.$emit("new-title", "Complete your Profile");
+          self.$router.push("/home/profile");
         })
         .catch(err => {
           alert(`Oops! ${err.message}`);

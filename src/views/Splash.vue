@@ -8,7 +8,7 @@
           color="btnColor"
           round
           light
-          class="fb-btn submit-btn mb-3"
+          class="fb-btn submit-btn mb-3 black--text"
           to="/register"
         >Get Started</v-btn>
         <v-btn color="btnColor" round outline class="fb-btn submit-btn" to="/login">Log in</v-btn>

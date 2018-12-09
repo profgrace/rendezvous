@@ -8,6 +8,7 @@ import Home from "./views/Home.vue";
 import Profile from "./views/Profile.vue";
 import Feed from "./views/Feed.vue";
 import Notifications from "./views/Notifications.vue";
+import Settings from "./views/Settings.vue";
 
 // import BottomNav from "./components/BottomNav.vue";
 
@@ -40,12 +41,12 @@ const router = new Router({
       component: Home,
       children: [
         {
-          path: "/home",
+          path: "/home/profile",
           name: "profile",
           component: Profile
         },
         {
-          path: "/home/feed",
+          path: "/home",
           name: "feed",
           component: Feed
         },
@@ -53,6 +54,11 @@ const router = new Router({
           path: "/home/notifications",
           name: "notifications",
           component: Notifications
+        },
+        {
+          path: "/home/settings",
+          name: "settings",
+          component: Settings
         }
       ],
       meta: {
