@@ -1,6 +1,7 @@
 /* eslint-disable */
 
-import firebase from "firebase";
+import firebase from "../firebase";
+import db from "../db.js";
 export default {
   userLogin: function(data) {
     return firebase
@@ -16,10 +17,15 @@ export default {
   // Person
   createPerson: function(data) {
     console.log(data);
-    return firebase
-      .database()
-      .ref("people")
-      .push(data);
+    db.collection("people")
+      .add({ data })
+      .then(response => {
+        alert("Person added!");
+      });
+    // return firebase
+    //   .database()
+    //   .ref("people")
+    //   .push(data);
   },
   peopleDetails: function(data) {
     console.log(data);

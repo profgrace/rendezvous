@@ -35,15 +35,6 @@
       background-color="white"
       name="phone"
       type="text"
-      label="Email Address"
-      placeholder="Your email address here. . ."
-      v-model="user.email"
-    ></v-text-field>
-    <v-text-field
-      box
-      background-color="white"
-      name="phone"
-      type="text"
       label="Phone Number"
       placeholder="A real phone number please. . ."
       v-model="phone"
@@ -91,9 +82,10 @@ export default {
     saveProfile() {
       const self = this;
       const person = {
+        userID: this.user.userID,
         firstname: this.firstname,
         lastname: this.lastname,
-        email: this.email,
+        email: this.user.email,
         phone: this.phone,
         interest: this.interest
       };

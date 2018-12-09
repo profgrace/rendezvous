@@ -12,8 +12,8 @@ const getters = {
 
 const mutations = {
   setCurrentUser(state, user) {
-    console.log(`User: ${JSON.stringify(user)}`);
     state.user = {
+      userID: user.uid,
       email: user.email,
     };
   },
