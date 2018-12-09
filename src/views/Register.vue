@@ -64,7 +64,6 @@ export default {
         .dispatch("user/register", user)
         .then(user => {
           // self.$router.replace("login");
-          this.$emit("new-title", "Complete your Profile");
           self.$router.push("/home/profile");
         })
         .catch(err => {
