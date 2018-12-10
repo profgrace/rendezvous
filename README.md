@@ -1,10 +1,11 @@
-# rendezvous
+# Rendezvous
 
 Rendezvous enables people within 1KM to meet and interact in real life.
 
 ----------------------------- Work in Progress ------------------------------
 
-Demo Link: rendezvous.techiegrace.com
+Demo Link: 
+https://rendezvous.techiegrace.com
 
 For best styling results, please view on an actual mobile device.
 
@@ -28,5 +29,6 @@ To be Implemented:
 - ... Maybe more
 - Conversion into a mobile app (maybe using Cordova)
 - Entire Code cleanup
+
 
 Thank you for viewing my project... Feel free to collaborate. :-)
