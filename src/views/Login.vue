@@ -23,7 +23,6 @@
   </v-container>
 </template>
 <script>
-/* eslint-disable */
 import Bg from "../components/Bg.vue";
 import Logo from "../components/Logo.vue";
 import Form from "../components/Form.vue";
@@ -56,6 +55,7 @@ export default {
       };
       this.$store
         .dispatch("user/login", user)
+        // eslint-disable-next-line
         .then(user => {
           self.$router.replace("home");
         })
@@ -67,6 +67,7 @@ export default {
       const self = this;
       this.$store
         .dispatch("user/googleLogin")
+        // eslint-disable-next-line
         .then(user => {
           self.$router.push("/home/profile");
         })

@@ -29,9 +29,7 @@
 import { mapGetters } from "vuex";
 export default {
   data() {
-    return {
-      // people: []
-    };
+    return {};
   },
   computed: {
     ...mapGetters("people", {

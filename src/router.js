@@ -10,8 +10,6 @@ import Feed from "./views/Feed.vue";
 import Notifications from "./views/Notifications.vue";
 import Settings from "./views/Settings.vue";
 
-// import BottomNav from "./components/BottomNav.vue";
-
 Vue.use(Router);
 
 const router = new Router({

@@ -1,15 +1,14 @@
-/* eslint-disable */
 import api from "../../api";
 const state = {
   user: {},
   latitude: "",
-  longitude: "",
+  longitude: ""
 };
 
 const getters = {
   getUser(state) {
     return state.user;
-  },
+  }
 };
 
 const mutations = {
@@ -18,27 +17,25 @@ const mutations = {
       userID: user.uid,
       email: user.email,
       name: user.displayName,
-      pic: user.photoURL,
+      pic: user.photoURL
     };
   },
   saveUserLocation(state, { latitude, longitude }) {
     state.latitude = latitude;
     state.longitude = longitude;
-    console.log(`Latitude: ${latitude} and Longitude: ${longitude}`);
-  },
+  }
 };
 
 const actions = {
   async login({ commit }, data) {
     const loginResponse = await api.userLogin(data);
-    // console.log("login:\n ", loginResponse);
     commit("setCurrentUser", loginResponse.user);
   },
   async googleLogin({ commit }) {
     const loginResponse = await api.userGoogleLogin();
-    console.log("login:\n ", loginResponse);
     commit("setCurrentUser", loginResponse.user);
   },
+  // eslint-disable-next-line
   async fetchUserProfile({ commit }) {
     return state.user;
   },
@@ -46,7 +43,7 @@ const actions = {
     const registrationResponse = await api.userRegister(data);
     // console.log("registration response:\n", registrationResponse);
     commit("setCurrentUser", registrationResponse.user);
-  },
+  }
 };
 
 export default {
@@ -54,5 +51,5 @@ export default {
   state,
   getters,
   mutations,
-  actions,
+  actions
 };

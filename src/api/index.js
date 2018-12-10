@@ -38,6 +38,5 @@ export default {
       // eslint-disable-next-line
       console.log(err);
     }
-    // return firebase.database().ref("people");
   }
 };
