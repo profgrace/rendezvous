@@ -27,7 +27,8 @@ const actions = {
   // eslint-disable-next-line
   async addPerson({ commit }, data) {
     await api.createPerson(data);
-    alert("Profile Updated!");
+    // eslint-disable-next-line
+    console.log(`Profile updated!`);
   }
 };
 

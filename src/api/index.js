@@ -29,9 +29,9 @@ export default {
   createPerson: function(data) {
     db.collection("people")
       .add({ data })
-      // eslint-disable-next-line
       .then(response => {
-        alert("Person added!");
+        // eslint-disable-next-line
+        console.log(`Person added! - ${response}`);
       });
   },
   peopleDetails: function() {

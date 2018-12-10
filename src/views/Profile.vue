@@ -98,7 +98,7 @@ export default {
           self.$router.push("/home");
         })
         .catch(err => {
-          alert(`Oops! ${err.message}`);
+          self.$toastr("error", `Oops! ${err.message}`);
         });
     }
   },

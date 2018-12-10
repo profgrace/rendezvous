@@ -60,7 +60,7 @@ export default {
           self.$router.replace("home");
         })
         .catch(err => {
-          alert(`Oops! ${err.message}`);
+          self.$toastr("error", `Oops! ${err.message}`);
         });
     },
     googleSubmit() {
@@ -72,7 +72,7 @@ export default {
           self.$router.push("/home/profile");
         })
         .catch(err => {
-          alert(`Oops! ${err.message}`);
+          self.$toastr("error", `Oops! ${err.message}`);
         });
     }
   }
