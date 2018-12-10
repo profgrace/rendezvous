@@ -15,7 +15,7 @@
           <span></span> or
           <span></span>
         </div>
-        <v-btn round color="red" dark class="submit-btn">
+        <v-btn round color="red" dark class="submit-btn" @click="googleSubmit">
           <img src="../assets/icons/google.svg" alt="Google's Icon" class="mr-2">
           Get Started with Google
         </v-btn>
@@ -62,7 +62,18 @@ export default {
         .dispatch("user/register", user)
         // eslint-disable-next-line
         .then(user => {
-          // self.$router.replace("login");
+          self.$router.push("/home/profile");
+        })
+        .catch(err => {
+          alert(`Oops! ${err.message}`);
+        });
+    },
+    googleSubmit() {
+      const self = this;
+      this.$store
+        .dispatch("user/googleLogin")
+        // eslint-disable-next-line
+        .then(user => {
           self.$router.push("/home/profile");
         })
         .catch(err => {

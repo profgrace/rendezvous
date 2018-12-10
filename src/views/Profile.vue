@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs3 class="profile-pic">
         <v-avatar size="60">
-          <!-- <img :src="user.pic" alt="Upload Profile Picture"> -->
+          <img :src="user.pic" alt="Upload Profile Picture">
           <div class="upload-img" v-if="!user.pic">
             <img src="../assets/icons/camera.svg">
           </div>
