@@ -3,8 +3,8 @@
     <v-layout row wrap>
       <v-flex xs3 class="profile-pic">
         <v-avatar size="60">
-          <img src="../assets/icons/user.svg" alt="Upload Profile Picture">
-          <div class="upload-img">
+          <!-- <img :src="user.pic" alt="Upload Profile Picture"> -->
+          <div class="upload-img" v-if="!user.pic">
             <img src="../assets/icons/camera.svg">
           </div>
         </v-avatar>
@@ -17,7 +17,7 @@
           type="text"
           label="First Name"
           placeholder="Just your personal name"
-          v-model="firstname"
+          v-model="name[0]"
         ></v-text-field>
       </v-flex>
     </v-layout>
@@ -28,7 +28,7 @@
       type="text"
       label="Last Name"
       placeholder="Your surname"
-      v-model="lastname"
+      v-model="name[1]"
     ></v-text-field>
     <v-text-field
       box
@@ -57,7 +57,6 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      firstname: "",
       lastname: "",
       email: "",
       phone: "",
@@ -76,15 +75,18 @@ export default {
   computed: {
     ...mapGetters("user", {
       user: "getUser"
-    })
+    }),
+    name() {
+      return this.user.name.split(" ");
+    }
   },
   methods: {
     saveProfile() {
       const self = this;
       const person = {
         userID: this.user.userID,
-        firstname: this.firstname,
-        lastname: this.lastname,
+        firstname: this.name[0],
+        lastname: this.name[1],
         email: this.user.email,
         phone: this.phone,
         interest: this.interest
@@ -93,9 +95,7 @@ export default {
         .dispatch("people/addPerson", person)
         // eslint-disable-next-line
         .then(user => {
-          // eslint-disable-next-line
-          // console.log(`User Info: ${user}`);
-          self.$router.push("/home/feed");
+          self.$router.push("/home");
         })
         .catch(err => {
           alert(`Oops! ${err.message}`);

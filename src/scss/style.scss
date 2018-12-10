@@ -70,6 +70,12 @@ form {
     font-size: 12px !important;
   }
 }
+.divider {
+  border-top: 1px dashed #aaaaaa;
+  display: inline-block;
+  height: 1px;
+  width: 100%;
+}
 // ToolBar
 .logout {
   img {

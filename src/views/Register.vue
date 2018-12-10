@@ -28,12 +28,10 @@
   </v-container>
 </template>
 <script>
-/* eslint-disable */
 import Bg from "../components/Bg.vue";
 import Logo from "../components/Logo.vue";
 import Form from "../components/Form.vue";
 
-import firebase from "firebase";
 export default {
   name: "login",
   components: {
@@ -62,6 +60,7 @@ export default {
       };
       this.$store
         .dispatch("user/register", user)
+        // eslint-disable-next-line
         .then(user => {
           // self.$router.replace("login");
           self.$router.push("/home/profile");

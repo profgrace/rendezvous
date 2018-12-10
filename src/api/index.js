@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import firebase from "../firebase";
 import db from "../db.js";
 export default {
@@ -7,6 +5,16 @@ export default {
     return firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password);
+  },
+  userGoogleLogin: function() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    try {
+      const result = firebase.auth().signInWithPopup(provider);
+      return result;
+    } catch (error) {
+      // eslint-disable-next-line
+      console.log(error);
+    }
   },
   userRegister: function(data) {
     return firebase
@@ -16,19 +24,20 @@ export default {
 
   // Person
   createPerson: function(data) {
-    console.log(data);
     db.collection("people")
       .add({ data })
+      // eslint-disable-next-line
       .then(response => {
         alert("Person added!");
       });
-    // return firebase
-    //   .database()
-    //   .ref("people")
-    //   .push(data);
   },
-  peopleDetails: function(data) {
-    console.log(data);
-    return firebase.database().ref("people");
-  },
+  peopleDetails: function() {
+    try {
+      return db.collection("people").get();
+    } catch (err) {
+      // eslint-disable-next-line
+      console.log(err);
+    }
+    // return firebase.database().ref("people");
+  }
 };

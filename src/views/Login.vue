@@ -10,7 +10,7 @@
           <span></span> or
           <span></span>
         </div>
-        <v-btn round color="red" dark class="submit-btn">
+        <v-btn round color="red" dark class="submit-btn" @click="googleSubmit">
           <img src="../assets/icons/google.svg" alt="Google's Icon" class="mr-2">
           Log in with Google
         </v-btn>
@@ -58,6 +58,17 @@ export default {
         .dispatch("user/login", user)
         .then(user => {
           self.$router.replace("home");
+        })
+        .catch(err => {
+          alert(`Oops! ${err.message}`);
+        });
+    },
+    googleSubmit() {
+      const self = this;
+      this.$store
+        .dispatch("user/googleLogin")
+        .then(user => {
+          self.$router.push("/home/profile");
         })
         .catch(err => {
           alert(`Oops! ${err.message}`);

@@ -2,6 +2,8 @@
 import api from "../../api";
 const state = {
   user: {},
+  latitude: "",
+  longitude: "",
 };
 
 const getters = {
@@ -15,7 +17,14 @@ const mutations = {
     state.user = {
       userID: user.uid,
       email: user.email,
+      name: user.displayName,
+      pic: user.photoURL,
     };
+  },
+  saveUserLocation(state, { latitude, longitude }) {
+    state.latitude = latitude;
+    state.longitude = longitude;
+    console.log(`Latitude: ${latitude} and Longitude: ${longitude}`);
   },
 };
 
@@ -25,7 +34,11 @@ const actions = {
     // console.log("login:\n ", loginResponse);
     commit("setCurrentUser", loginResponse.user);
   },
-  // eslint-disable-next-line
+  async googleLogin({ commit }) {
+    const loginResponse = await api.userGoogleLogin();
+    console.log("login:\n ", loginResponse);
+    commit("setCurrentUser", loginResponse.user);
+  },
   async fetchUserProfile({ commit }) {
     return state.user;
   },
