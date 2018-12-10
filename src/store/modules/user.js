@@ -31,6 +31,10 @@ const actions = {
     const loginResponse = await api.userLogin(data);
     commit("setCurrentUser", loginResponse.user);
   },
+  // eslint-disable-next-line
+  async logout({ commit }) {
+    return await api.userLogout();
+  },
   async googleLogin({ commit }) {
     const loginResponse = await api.userGoogleLogin();
     commit("setCurrentUser", loginResponse.user);
@@ -41,7 +45,6 @@ const actions = {
   },
   async register({ commit }, data) {
     const registrationResponse = await api.userRegister(data);
-    // console.log("registration response:\n", registrationResponse);
     commit("setCurrentUser", registrationResponse.user);
   }
 };

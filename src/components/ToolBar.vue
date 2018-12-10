@@ -11,17 +11,13 @@
   </v-toolbar>
 </template>
 <script>
-import firebase from "firebase";
 export default {
   props: ["title"],
   methods: {
     logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace("splash");
-        });
+      this.$store.dispatch("user/logout").then(() => {
+        this.$router.replace("splash");
+      });
     }
   }
 };

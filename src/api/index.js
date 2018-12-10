@@ -21,6 +21,9 @@ export default {
       .auth()
       .createUserWithEmailAndPassword(data.email, data.password);
   },
+  userLogout: function() {
+    return firebase.auth().signOut();
+  },
 
   // Person
   createPerson: function(data) {

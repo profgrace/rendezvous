@@ -5,7 +5,7 @@
         <template v-for="user in people">
           <v-list-tile avatar :key="user.id">
             <v-list-tile-avatar>
-              <img :src="user.pic" alt="User's Profile Picture">
+              <img src="../assets/icons/user.svg" alt="User's Profile Picture">
             </v-list-tile-avatar>
 
             <v-list-tile-content>
