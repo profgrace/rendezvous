@@ -5,9 +5,9 @@ Rendezvous enables people within 1KM to meet and interact in real life.
 ----------------------------- Work in Progress ------------------------------
 
 Demo Link: 
-# rendezvous.techiegrace.com
+rendezvous.techiegrace.com
 
-# For best styling results, please view on an actual mobile device.
+For best styling results, please view on an actual mobile device.
 
 Already Implemented Features
 
